@@ -1,0 +1,292 @@
+body {
+  background-color: #000000;
+  margin: 0;
+  overflow: hidden;
+}
+article {
+  position: absolute;
+  top: 50%;
+  margin-top: -2.5vw;
+}
+article div.container {
+  -webkit-perspective: 800px;
+  width: 5vw;
+}
+article div.container > div.element-container {
+  -webkit-transform-style: preserve-3d;
+  opacity: 0;
+}
+article div.container > div.reset {
+  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(0px) translateY(0px) translateZ(0px);
+  opacity: 1;
+  -webkit-transition: 0.4s -webkit-transform ease-out, 0.4s opacity ease-out;
+  margin-top: 0px;
+  -webkit-transform-style: preserve-3d;
+}
+article div.container > div > div.element {
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  color: #ffffff;
+  font-family: futura;
+  font-size: 5vw;
+  line-height: 5vw;
+  text-align: center;
+}
+button#reset-btn {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 90px;
+  height: 30px;
+  font-size: 10px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2px;
+  border: none;
+  background-color: #ffffff;
+}
+button#reset-btn:focus {
+  outline: 0;
+}
+div.container:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0vw;
+}
+div.container:nth-child(1) div.element-container {
+  -webkit-transform: rotateX(-142deg) rotateY(-356deg) rotateZ(-290deg) translateX(237px) translateY(-298px) translateZ(-300px);
+}
+div.container:nth-child(1) div.element-container > div {
+  top: 0;
+  left: 0vw;
+}
+div.container:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 5vw;
+}
+div.container:nth-child(2) div.element-container {
+  -webkit-transform: rotateX(-271deg) rotateY(-41deg) rotateZ(-354deg) translateX(45px) translateY(180px) translateZ(276px);
+}
+div.container:nth-child(2) div.element-container > div {
+  top: 0;
+  left: 5vw;
+}
+div.container:nth-child(3) {
+  position: absolute;
+  top: 0;
+  left: 10vw;
+}
+div.container:nth-child(3) div.element-container {
+  -webkit-transform: rotateX(-329deg) rotateY(151deg) rotateZ(-167deg) translateX(171px) translateY(-337px) translateZ(-183px);
+}
+div.container:nth-child(3) div.element-container > div {
+  top: 0;
+  left: 10vw;
+}
+div.container:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 15vw;
+}
+div.container:nth-child(4) div.element-container {
+  -webkit-transform: rotateX(133deg) rotateY(-313deg) rotateZ(-229deg) translateX(-107px) translateY(301px) translateZ(-321px);
+}
+div.container:nth-child(4) div.element-container > div {
+  top: 0;
+  left: 15vw;
+}
+div.container:nth-child(5) {
+  position: absolute;
+  top: 0;
+  left: 20vw;
+}
+div.container:nth-child(5) div.element-container {
+  -webkit-transform: rotateX(223deg) rotateY(-234deg) rotateZ(-307deg) translateX(149px) translateY(215px) translateZ(-67px);
+}
+div.container:nth-child(5) div.element-container > div {
+  top: 0;
+  left: 20vw;
+}
+div.container:nth-child(6) {
+  position: absolute;
+  top: 0;
+  left: 25vw;
+}
+div.container:nth-child(6) div.element-container {
+  -webkit-transform: rotateX(189deg) rotateY(-43deg) rotateZ(-127deg) translateX(183px) translateY(332px) translateZ(-183px);
+}
+div.container:nth-child(6) div.element-container > div {
+  top: 0;
+  left: 25vw;
+}
+div.container:nth-child(7) {
+  position: absolute;
+  top: 0;
+  left: 30vw;
+}
+div.container:nth-child(7) div.element-container {
+  -webkit-transform: rotateX(283deg) rotateY(49deg) rotateZ(338deg) translateX(318px) translateY(101px) translateZ(-79px);
+}
+div.container:nth-child(7) div.element-container > div {
+  top: 0;
+  left: 30vw;
+}
+div.container:nth-child(8) {
+  position: absolute;
+  top: 0;
+  left: 35vw;
+}
+div.container:nth-child(8) div.element-container {
+  -webkit-transform: rotateX(-178deg) rotateY(175deg) rotateZ(-105deg) translateX(204px) translateY(151px) translateZ(294px);
+}
+div.container:nth-child(8) div.element-container > div {
+  top: 0;
+  left: 35vw;
+}
+div.container:nth-child(9) {
+  position: absolute;
+  top: 0;
+  left: 40vw;
+}
+div.container:nth-child(9) div.element-container {
+  -webkit-transform: rotateX(303deg) rotateY(139deg) rotateZ(-263deg) translateX(151px) translateY(-3px) translateZ(100px);
+}
+div.container:nth-child(9) div.element-container > div {
+  top: 0;
+  left: 40vw;
+}
+div.container:nth-child(10) {
+  position: absolute;
+  top: 0;
+  left: 45vw;
+}
+div.container:nth-child(10) div.element-container {
+  -webkit-transform: rotateX(110deg) rotateY(172deg) rotateZ(313deg) translateX(-165px) translateY(8px) translateZ(-157px);
+}
+div.container:nth-child(10) div.element-container > div {
+  top: 0;
+  left: 45vw;
+}
+div.container:nth-child(11) {
+  position: absolute;
+  top: 0;
+  left: 50vw;
+}
+div.container:nth-child(11) div.element-container {
+  -webkit-transform: rotateX(172deg) rotateY(-353deg) rotateZ(-243deg) translateX(-244px) translateY(-241px) translateZ(46px);
+}
+div.container:nth-child(11) div.element-container > div {
+  top: 0;
+  left: 50vw;
+}
+div.container:nth-child(12) {
+  position: absolute;
+  top: 0;
+  left: 55vw;
+}
+div.container:nth-child(12) div.element-container {
+  -webkit-transform: rotateX(208deg) rotateY(-127deg) rotateZ(-248deg) translateX(-19px) translateY(263px) translateZ(-20px);
+}
+div.container:nth-child(12) div.element-container > div {
+  top: 0;
+  left: 55vw;
+}
+div.container:nth-child(13) {
+  position: absolute;
+  top: 0;
+  left: 60vw;
+}
+div.container:nth-child(13) div.element-container {
+  -webkit-transform: rotateX(172deg) rotateY(-303deg) rotateZ(-249deg) translateX(318px) translateY(-143px) translateZ(-203px);
+}
+div.container:nth-child(13) div.element-container > div {
+  top: 0;
+  left: 60vw;
+}
+div.container:nth-child(14) {
+  position: absolute;
+  top: 0;
+  left: 65vw;
+}
+div.container:nth-child(14) div.element-container {
+  -webkit-transform: rotateX(-54deg) rotateY(-154deg) rotateZ(37deg) translateX(7px) translateY(37px) translateZ(182px);
+}
+div.container:nth-child(14) div.element-container > div {
+  top: 0;
+  left: 65vw;
+}
+div.container:nth-child(15) {
+  position: absolute;
+  top: 0;
+  left: 70vw;
+}
+div.container:nth-child(15) div.element-container {
+  -webkit-transform: rotateX(246deg) rotateY(-178deg) rotateZ(-121deg) translateX(-230px) translateY(-246px) translateZ(298px);
+}
+div.container:nth-child(15) div.element-container > div {
+  top: 0;
+  left: 70vw;
+}
+div.container:nth-child(16) {
+  position: absolute;
+  top: 0;
+  left: 75vw;
+}
+div.container:nth-child(16) div.element-container {
+  -webkit-transform: rotateX(-255deg) rotateY(89deg) rotateZ(304deg) translateX(22px) translateY(-121px) translateZ(4px);
+}
+div.container:nth-child(16) div.element-container > div {
+  top: 0;
+  left: 75vw;
+}
+div.container:nth-child(17) {
+  position: absolute;
+  top: 0;
+  left: 80vw;
+}
+div.container:nth-child(17) div.element-container {
+  -webkit-transform: rotateX(75deg) rotateY(235deg) rotateZ(309deg) translateX(270px) translateY(203px) translateZ(-149px);
+}
+div.container:nth-child(17) div.element-container > div {
+  top: 0;
+  left: 80vw;
+}
+div.container:nth-child(18) {
+  position: absolute;
+  top: 0;
+  left: 85vw;
+}
+div.container:nth-child(18) div.element-container {
+  -webkit-transform: rotateX(348deg) rotateY(-76deg) rotateZ(273deg) translateX(209px) translateY(6px) translateZ(-98px);
+}
+div.container:nth-child(18) div.element-container > div {
+  top: 0;
+  left: 85vw;
+}
+div.container:nth-child(19) {
+  position: absolute;
+  top: 0;
+  left: 90vw;
+}
+div.container:nth-child(19) div.element-container {
+  -webkit-transform: rotateX(-279deg) rotateY(-178deg) rotateZ(185deg) translateX(244px) translateY(-330px) translateZ(-305px);
+}
+div.container:nth-child(19) div.element-container > div {
+  top: 0;
+  left: 90vw;
+}
+div.container:nth-child(20) {
+  position: absolute;
+  top: 0;
+  left: 95vw;
+}
+div.container:nth-child(20) div.element-container {
+  -webkit-transform: rotateX(-238deg) rotateY(-257deg) rotateZ(-6deg) translateX(-39px) translateY(140px) translateZ(129px);
+}
+div.container:nth-child(20) div.element-container > div {
+  top: 0;
+  left: 95vw;
+}
