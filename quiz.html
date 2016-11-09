@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <style type='text/css'>
+    body{
+      margin-top:15%;
+      margin-left: 20%;
+      border: 2px solid black;
+      width: 550px;
+      padding-bottom: 25px;
+      margin: center;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+</style>
+  </head>
+  <body>
+    <body onload="populatePage('f');" class='text-center container-fluid'>
+      <div class='question-box'>
+        <h2 id="currentQuestion"></h2>
+        <form name="normMcdonald" id="nm" />
+          <input type="radio" name="possibleAnswers" />
+          <span id="q1"></span>
+          <br>
+          <input type="radio" name="possibleAnswers" />
+          <span id="q2"></span>
+          <br>
+          <input type="radio" name="possibleAnswers" />
+          <span id="q3"></span>
+          <br>
+          <input type="radio" name="possibleAnswers" />
+          <span id="q4"></span>
+          <br>
+          </div><!-- question box end  -->
+          <div class="buttons text-center">
+            <input id="submit1" type="button" onclick="back()" value="BACK" class="btn btn-danger"/>
+            <input id="submit2" type="button" onclick="scorePage()" value="NEXT" class="btn  btn-success"/>
+            <input id="submit3" type="button" onclick="submitAndCheck(); endOfQuiz()" value="SUBMIT" style="display: none;" disabled class="btn  btn-primary">
+          </div>
+        </form>
+      </body>
+      <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+     <script>
+     var questionIndex = 0;
+var correctAnswer = '';
+
+var allQuestions = [{
+    question: "What turn is best to get up wind?",
+    choices: ["this", "that", "jibe", "tack"],
+    correctAnswer: "tack"
+  }, {
+    question: "I'm question two!",
+    choices: ["answer1", "answer2", "answer3", "answer4"],
+    correctAnswer: "answer1"
+  }, {
+    question: "I'm question three!",
+    choices: ["answer1", "answer2", "answer3", "answer4"],
+    correctAnswer: "answer2"
+  }, {
+    question: "I'm question four!",
+    choices: ["answer1", "answer2", "answer3", "answer4"],
+    correctAnswer: "answer3"
+  }, {
+    question: "I'm question five!",
+    choices: ["answer1", "answer2", "answer3", "answer4"],
+    correctAnswer: "answer4"
+  },
+
+];
+
+function populatePage(param) {
+
+if (questionIndex > 0)
+  {
+    $('.question-box').fadeOut("fast");
+  }
+
+
+
+  if (param === 'b') {
+    questionIndex--
+  }
+
+  if (!!!questionIndex) //for greying out back button
+  {
+    document.getElementById("submit1").style.opacity = .5;
+    document.getElementById("submit1").disabled = true;
+  } else {
+    document.getElementById("submit1").style.opacity = 1;
+    document.getElementById("submit1").disabled = false;
+  }
+
+  if (questionIndex === 4) //for hiding NEXT and displaying Submit
+  {
+    document.getElementById("submit2").style.display = "none";
+    document.getElementById("submit3").style.display = "inline-block";
+  } else {
+    document.getElementById("submit2").style.display = "inline-block";
+    document.getElementById("submit3").style.display = "none";
+  }
+
+  a1 = allQuestions[questionIndex].choices[0]; //POPULATES THE HTML IN THE PAGE
+  a2 = allQuestions[questionIndex].choices[1];
+  a3 = allQuestions[questionIndex].choices[2];
+  a4 = allQuestions[questionIndex].choices[3];
+  aa = [a1, a2, a3, a4];
+
+  document.getElementById("currentQuestion").innerHTML = allQuestions[questionIndex].question;
+
+
+  $('.question-box').fadeIn("fast");
+
+  document.getElementById("q1").innerHTML = a1;
+  document.getElementById("q2").innerHTML = a2;
+  document.getElementById("q3").innerHTML = a3;
+  document.getElementById("q4").innerHTML = a4;
+
+
+  var x = document.normMcdonald.possibleAnswers; //returns radio object array, puts the answers as values into each radio object
+
+  x[0].value = aa[0];
+  x[1].value = aa[1];
+  x[2].value = aa[2];
+  x[3].value = aa[3];
+
+  if (allQuestions[questionIndex].savedAns) {
+    var y = document.normMcdonald.possibleAnswers;
+    var temp1 = allQuestions[questionIndex].choices;
+    var temp2 = allQuestions[questionIndex].savedAns;
+    var temp3 = temp1.indexOf(temp2);
+    y[temp3].checked = true;
+  }
+
+  var back1 = document.getElementById('submit1'); //dynamically disables butts
+  var next1 = document.getElementById('submit2');
+
+  back1.disabled = true;
+  next1.disabled = true;
+
+  setTimeout(function(){
+      if (questionIndex !== 0) { back1.disabled = false };
+      next1.disabled = false;
+  }, "300")                  //dynamically disables butts
+
+} //FUNCTION END
+
+function submitAndCheck() {
+
+  var y = document.normMcdonald.possibleAnswers;
+
+  //LOOPS TO FIND YOUR ANSWER
+
+  for (var j = 0; j < y.length; j++) {
+    var radObj = y[j];
+
+    if (radObj.checked === true) {
+      allQuestions[questionIndex].savedAns = radObj.value; //TO SAVE ANSWER
+      radObj.checked = false; // deselects radio button once submitted
+      break;
+    }
+  }
+
+} //submitAndCheck END
+
+function back() {
+  if (questionIndex === 4) {
+    submitAndCheck()
+  }
+  populatePage('b');
+  if (allQuestions[questionIndex].savedAns) {
+    var y = document.normMcdonald.possibleAnswers;
+    var temp1 = allQuestions[questionIndex].choices;
+    var temp2 = allQuestions[questionIndex].savedAns;
+    var temp3 = temp1.indexOf(temp2);
+    y[temp3].checked = true;
+  }
+
+}
+function scorePage() {
+
+    submitAndCheck();
+    questionIndex++;
+    populatePage('f');
+
+}
+function endOfQuiz() {
+  function funk(item) {
+    return item.savedAns;
+  } //funk END
+
+  function getTotal() {
+    var count = 0;
+
+    allQuestions.forEach(function(item) {
+      if (item.savedAns === item.correctAnswer) {
+        count++;
+      }
+    })
+    return count;
+  } //getTotal end
+  if (allQuestions.every(funk)) {
+    var total = getTotal();
+    console.log(total)
+    var grade = (total / allQuestions.length) * 100;
+    document.body.innerHTML = "You correctly answered " + total + " out of " + allQuestions.length + " questions, for a grade of " + grade + " percent."
+  } else {
+    alert('YOU MUST ANSWER ALL THE QUESTIONS FIRST!')
+
+  }
+} //endOfQuiz END
+    $(".question-box input[name='possibleAnswers']").click(function(){
+    console.log(this.value)
+      if (questionIndex === 4)
+        {
+        allQuestions[questionIndex].savedAns = this.value;
+
+          if (allQuestions.every(funk2))
+          {
+            document.getElementById("submit3").disabled = false;
+          }
+        }
+    function funk2(item) {
+    return item.savedAns;
+  } //funk END
+    });
+    </script>
+    </body>
+  </html>
